@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Drawing</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/drawing.css">
+</head>
+<body>
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="img/shining.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="active"><a href="drawing.html">Renderings</a></li>
+            <li><a href="bim.html">BIM</a></li>
+            <li><a href="animate3d.html">3D Animate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <h2 class="drawing text-uppercase">digital Effect Drawing</h2>
+    <div class="alternate">
+    	<img src="img/sw-photo.png">
+    	<div class="inner">
+    		<img src="img/sw-photo.png">
+	    	<img src="img/3d-1.png">
+	    	<img src="img/sw-5.png">
+    	</div>
+    	<p></p>
+    </div>
+    <ul class="wrap">
+    	<!-- <li>
+    		<img src="img/sw-1.png">
+    		<img src="img/sw-2.png">
+    		<img src="img/sw-3.png">
+    	</li> -->
+    	<div class="mask"><img src="" alt=""></div>
+    	<a href="javascript:void(0);" class="goTop"></a>
+    </ul>
+    <p class="aboutus">CONTACT US</p>
+    <a href="javascript:void(0);" class="bottom"><img src="img/footer3.png"></a>
+    <footer><img src="img/footer.png"></footer>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(".navbar-right li").hover(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        },function(){
+            $(this).removeClass("active");
+            $(this).parent().find("li").eq(2).addClass("active");
+        })
+		var index=0;
+		next();
+		var len=$(".alternate .inner img").size();
+		for(var k=0;k<len;k++){
+			$("<span/>").appendTo($(".alternate>p"));
+		}
+		function next(){
+			$(".alternate .inner img").eq(index).fadeIn(600).siblings().fadeOut(300);
+			$(".alternate p span").eq(index).addClass("sActive").siblings().removeClass("sActive");
+		}
+		$(".alternate p span").on("mouseenter",function(){
+			index=$(this).index();
+			next();
+		})
+		var timer=setInterval(function(){
+			index++;
+			if(index>len-1){
+				index=0;
+			}
+			next();
+		},3000)
+		$(".alternate").hover(function(){
+			clearInterval(timer)
+		},function(){
+			timer=setInterval(function(){
+				index++;
+				if(index>len-1){
+					index=0;
+				}
+				next();
+			},3000)
+		})
+		// 瀑布流:
+		function rnd(min,max){
+			return parseInt(Math.random()*(max-min+1)+min);
+		}
+		var rand1=rnd(0,97);
+		var rand2=rnd(0,97);
+		rand3=0;
+		var wid=[];
+		function width(){
+			wid=[];
+			rand1=rnd(20,97);   //保证最小宽度不小于20%
+			rand2=rnd(20,97);
+			if(rand1+rand2<77){
+				rand3=97-rand1-rand2;
+				wid.push(rand1);
+				wid.push(rand2);
+				wid.push(rand3);
+			}else{
+				rand1=rnd(0,97);
+				rand2=rnd(0,97);
+			}
+			while(wid.length==0){
+				width();
+			}
+		}
+		function createLi(){
+			width();
+			var newli=$("<li/>");
+			for(var i=0;i<3;i++){
+				var img=$("<img/>").css("width",wid[i]+"%");
+				img.attr("src","img/sw-"+rnd(1,10)+".png");
+				img.appendTo(newli);
+			}
+			newli.appendTo($(".wrap"));
+		}
+		createLi();
+		var wrap=$(".wrap").get(0);
+		var footer=$("footer").get(0);
+		var j=document.documentElement.clientHeight/$(".wrap>li").eq(0).get(0).offsetHeight;
+		j=parseInt(j);
+		window.onscroll = function() {
+			if(footer.getBoundingClientRect().bottom <= document.documentElement.clientHeight) {
+				for(m=0;m<j;m++){
+					createLi();
+					changeTop+=10;
+				}
+			}
+		}
+		$(".wrap").on("click","img",function(){
+			var imgSrc=$(this).attr("src");
+			$(this).css("filter","grayscale(50%)")
+			$(".mask img").attr("src",imgSrc).css("width","60%");
+			$(".mask").show();
+		})
+		$(".mask").on("click",function(){
+			$(".mask").hide();
+		})
+		// 返回顶部：
+		var changeTop=50;
+		var goTop=$(".goTop").get(0);
+		goTop.onclick=function(){
+			var sTop=document.body.scrollTop||document.documentElement.scrollTop;
+			var raf=window.requestAnimationFrame(change);
+			function change(){
+				sTop-=changeTop;
+				document.body.scrollTop=sTop;
+				document.documentElement.scrollTop=sTop;
+				raf=window.requestAnimationFrame(change);
+				if(sTop<0){
+					window.cancelAnimationFrame(raf);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

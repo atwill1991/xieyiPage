@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>bim</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bim.css">
+</head>
+<body>
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="img/shining.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="drawing2.html">Renderings</a></li>
+            <li class="active"><a href="bim.html">BIM</a></li>
+            <li><a href="animate3d.html">3D Animate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <header class="bim bimTop">BIM</header>
+    <div class="main">
+    	<div class="part1">
+    		<img src="img/bimbg1.png" class="bimbg1">
+			<img src="img/bim1.png" class="bim1">
+            <section class="wrap1">
+                <h2 class="">1.  Model Completion</h2>
+                <p>Establishing and creating the visible and multi-dimension Architecture, Structural and MEP model.</p>
+                <img src="img/bim1-1.png" class="bim1-1">
+                <img src="img/bim1-2.png" class="bim1-2">
+                <img src="img/bim1-3.png" class="bim1-3"> 
+            </section>
+    	</div>
+        <div class="part2">
+            <img src="img/bimbg2.png" class="bimbg2">
+            <img src="img/bim1.png" class="bim2">
+            <section class="wrap2">
+                <h2 class="">2. Clash Detection</h2>
+                <p>Completing the clash detection among various design parties, engineers and even different organisations in construction drawings.</p>
+                <img src="img/bim1-4.png" class="bim1-4">
+                <img src="img/bim1-5.png" class="bim1-5">
+            </section>
+        </div>
+        <div class="part3">
+            <img src="img/bimbg3.png" class="bimbg3">
+            <img src="img/bim2.png" class="bim3">
+            <section class="wrap3">
+                <h2 class="">3.  MEP Integration</h2>
+                <p>Profoundly completing the pipeline integration, design coordination and intra-organisational cooperation between Plumbing, HVAC and Electrical engineering.</p>
+                <img src="img/bim2-1.png" class="bim2-1">
+                <img src="img/bim2-2.png" class="bim2-2">
+            </section>
+        </div>
+        <div class="part4">
+            <img src="img/bimbg4.png" class="bimbg4">
+            <img src="img/bim2.png" class="bim4">
+            <img src="img/bim3.png" class="bim4-1">
+            <section class="wrap4">
+                <h2 class="">4. Curtain Wall Remedying</h2>
+                <p>Creating the abnormity wall based on parametric design tools, and completing detailed curtain wall nodes visibly</p>
+                <img src="img/bim3-1.png" class="bim3-1">
+                <img src="img/bim3-2.png" class="bim3-2">
+            </section>
+        </div>
+        <div class="part5">
+            <img src="img/bimbg5.png" class="bimbg5">
+            <img src="img/bim3.png" class="bim5">
+            <section class="wrap5">
+                <h2 class="">5.  BIM Consulting</h2>
+                <p>To help you to precisely know what is BIM? How BIM use? When and who is suitably to implement BIM?</p>
+            </section>
+        </div>
+        <a href="javascript:void(0);" class="goTop"></a>
+    </div>
+    <p class="bim">CONTACT US</p>
+    <a href="javascript:void(0);" class="bottom"><img src="img/footer3.png"></a>
+    <footer><img src="img/footer.png"></footer>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+        $(".navbar-right li").hover(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        },function(){
+            $(this).removeClass("active");
+            $(this).parent().find("li").eq(3).addClass("active");
+        })
+        // 返回顶部：
+        var changeTop=50;
+        var goTop=$(".goTop").get(0);
+        goTop.onclick=function(){
+            var sTop=document.body.scrollTop||document.documentElement.scrollTop;
+            var raf=window.requestAnimationFrame(change);
+            function change(){
+                sTop-=changeTop;
+                document.body.scrollTop=sTop;
+                document.documentElement.scrollTop=sTop;
+                raf=window.requestAnimationFrame(change);
+                if(sTop<0){
+                    window.cancelAnimationFrame(raf);
+                }
+            }
+        }
+        //滚轮事件：
+        var posTop=[];
+        $(".main>div").each(function(index,key){
+            // $(this).css("height",$(window).height());
+            // $(this).height($(window).height())
+            // posTop.push(parseInt($(".main").position().top+$(this).position().top));
+            posTop.push(parseInt($(".main").position().top+$(key).position().top))
+        })
+        $(document).bind("mousewheel DOMMouseScroll",function(e){
+            // console.log(e.originalEvent);
+            e.preventDefault();
+            var scrTop=$(document).scrollTop();          
+            if(e.originalEvent.wheelDelta>0||e.originalEvent.detail<0){
+                // console.log("up");
+                if(scrTop>0&&scrTop<=posTop[0]){
+                    $("html,body").stop().animate({
+                        scrollTop:0
+                    })
+                }
+                if(scrTop>posTop[0]&&scrTop<=posTop[1]){
+                    $("html,body").stop().animate({
+                        scrollTop:posTop[0]
+                    })
+                }
+                if(scrTop>posTop[1]&&scrTop<=posTop[2]){
+                    $("html,body").stop().animate({
+                        scrollTop:posTop[1]
+                    })
+                }
+                if(scrTop>posTop[2]&&scrTop<=posTop[3]){
+                    $("html,body").stop().animate({
+                        scrollTop:posTop[2]
+                    })
+                }
+                if(scrTop>posTop[3]&&scrTop<=posTop[4]){
+                    $("html,body").stop().animate({
+                        scrollTop:posTop[3]
+                    })
+                }
+                if(scrTop>posTop[4]&&scrTop<=parseInt($("footer").position().top)){
+                    $("html,body").stop().animate({
+                        scrollTop:posTop[4]
+                    })
+                }
+            }else{
+                // console.log("down");
+                if(scrTop>=0&&scrTop<posTop[0]){
+                    $("html,body").stop().animate({
+                        scrollTop:posTop[0]
+                    })
+                    // $(document).scrollTop(posTop[0]); 
+                }else if(scrTop>=posTop[0]&&scrTop<posTop[1]){
+                    // $(document).scrollTop(posTop[1]); 
+                     $("html,body").stop().animate({
+                        scrollTop:posTop[1]
+                    })
+                }else if(scrTop>=posTop[1]&&scrTop<posTop[2]){
+                    // scrTop=posTop[2];
+                     $("html,body").stop().animate({
+                        scrollTop:posTop[2]
+                    })
+                }else if(scrTop>=posTop[2]&&scrTop<posTop[3]){
+                    // scrTop=posTop[3];
+                     $("html,body").stop().animate({
+                        scrollTop:posTop[3]
+                    })
+                }else if(scrTop>=posTop[3]&&scrTop<posTop[4]){
+                    // scrTop=posTop[4];
+                     $("html,body").stop().animate({
+                        scrollTop:posTop[4]
+                    })
+                }else if(scrTop>=posTop[4]&&scrTop<parseInt($("footer").position().top)){
+                    // scrTop=parseInt($("footer").position().top);
+                     $("html,body").stop().animate({
+                        scrollTop:parseInt($("footer").position().top)
+                    })
+                }
+            }
+            // $(document).scrollTop(scrTop);
+            
+        })
+	</script>
+</body>
+</html>

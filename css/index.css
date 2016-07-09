@@ -1,0 +1,141 @@
+html,body{
+	width: 100%;
+}
+.navbar-brand img{
+	width: 120px;
+}
+#navbar .nav .active a{
+	background-color: #cfdb00;
+}
+.main{
+	padding-top: 11%;
+}
+.servicwe{
+	font-size: 2.5rem;
+	text-align: center;
+	color:#616161;
+}
+.ourSer:before{
+	content:"";
+	display: inline-block;
+	width: 9.13%;
+	height: 0;
+	vertical-align: middle;
+	border-top:1px solid #cfdb00;
+	margin-right:1.8%;
+}
+.ourSer:after{
+	content:"";
+	display: inline-block;
+	width: 9.13%;
+	height: 0;
+	vertical-align: middle;
+	border-top:1px solid #cfdb00;
+	margin-left:1.8%;
+}
+.main{
+	background-color: #f5f5f5;
+	padding-bottom: 6%;
+	margin-bottom: 5.5%;
+}
+.main>ul{
+	width: 75%;
+	margin:5.5% auto;
+}
+.main>ul img{
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.main>ul>li{
+	width: 100%;
+	border-top: 1px solid #bfbfbf;
+}
+.row1,.row2,.row3{
+	width: 100%;
+	height:240px;
+	overflow: hidden;
+}
+.row1>li,.row2>li,.row3>li{
+	float:left;
+}
+.r1List1,.r2List3,.r3List1{
+	width: 65%;
+	height: 100%;
+	transition: all 0.3s;
+}
+.r1List3,.r2List1,.r3List3{
+	transition: all 0.3s;
+}
+.mList1 .r1List1 a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background:url(../img/floor11.png) no-repeat;
+	background-size: 100% 100%;
+}
+.mList1.mActive .r1List1 a{
+	background-image:url(../img/floor12.png);
+}
+.mList2 .r2List3 a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background:url(../img/bgfoor12.png) no-repeat;
+	background-size: 100% 100%;
+}
+.mList2.mActive .r2List3 a{
+	background-image:url(../img/bgfloor22.png);
+}
+.mList3 .r3List1 a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background:url(../img/bar13.png) no-repeat;
+	background-size: 100% 100%;
+}
+.mList3.mActive .r3List1 a{
+	background-image:url(../img/bar23.png);
+}
+.r1List1,.r2List3,.r3List1{
+	width: 65%;
+	height: 100%;
+}
+.r1List3,.r2List1,.r3List3{
+	width: 33%;
+	padding:17px;
+	height: 100%;
+}
+.mList1 .r1List2,.mList2 .r2List2,.mList3 .r3List2{
+	width: 2%;
+	height: 100%;
+	background-color: #e1e1e1;
+}
+.mList1.mActive .r1List2,.mList2.mActive .r2List2,.mList3.mActive .r3List2{
+	background-color: #cfdb00;
+}
+.mList1,.mList2,.mList3{
+	color:#b4b4b4;
+}
+.mList1.mActive,.mList2.mActive,.mList3.mActive{
+	color:#3c3c3c;
+}
+.r1List1 a img{
+	width: 100%;
+}
+.text-uppercase{
+	font-size: 2.4rem;
+}
+.bottom{
+	display: block;
+	line-height: 100%;
+	text-align: center;
+	margin:6% auto;
+}
+footer{
+	border-top:2px solid #cfdb00;
+	height: 68px;
+	line-height: 68px;
+	text-align: center;
+	background-color: #b4b4b4;
+}

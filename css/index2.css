@@ -1,0 +1,40 @@
+a{
+	text-decoration: none;
+}
+.max{
+
+}
+.container{
+	height: 68px;
+}
+.navbar{
+	position:fixed;
+	top: 0;
+	left: 0;
+	background-color: cyan;
+}
+.logo{
+	display: block;
+	margin-left:170px;
+}
+.logo img{
+	width: 180px;
+}
+#nav .nActive a{
+	background-color: #cfdb00;
+}
+.navRight{
+	float: right;
+}
+.navRight>li{
+	float:left;
+}
+.main{
+	width: 74.6%;
+	margin:0 auto;
+	/*background-color: red;*/
+	height: 300px;
+}
+.main>h2{
+	font-size: 2.5rem;
+}

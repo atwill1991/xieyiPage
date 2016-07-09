@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+</head>
+<body>
+	<div id="wrap">
+		<h2></h2>
+		<a href="###"><img src=""></a>
+		<div class="content"></div>
+	</div>	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// $.ajax({
+		// 	type:"GET",
+		// 	url:"http://172.16.14.54/php_class/xieyi/water_fall.php?id=0",
+		// 	dataType:"json",
+		// 	success:function(data){
+		// 		console.log(data);
+		// 		var div=$("<div/>");
+		// 		var c='<h2>'+data[0].title+'</h2><a href="'+data[0].link+'"><img src="'+data[0].src+'"></a><div class="content"></div>';
+		// 		div.html(c);
+		// 		div.appendTo($("#wrap"));
+		// 	},
+		// 	error:function(){
+		// 		alert("出错了")
+		// 	}
+		// })
+		$.ajax({
+		type:"GET",
+		url:"http://172.16.14.54/php_class/xieyi/water_fall.php?id=0",
+		dataType:"json",
+		success:function(data) {
+			console.log(data);
+
+			for(var i = 0,len = data.length; i < len; i++) {
+				var div = $("<div></div>");
+				var c = '<h2>'+data[i].title+'</h2>'+
+						'<a href="'+data[i].link+'">'+
+							'<img src="http://172.16.14.54'+data[i].src+'">'+
+						'</a>'+
+						'<p class="content">'+data[i].content+'</p>';
+				div.html(c);
+				$("#wrap").append(div);
+			}
+		},
+		error:function() {
+			alert("出错")
+		}
+	})
+	</script>
+</body>
+</html>

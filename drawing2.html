@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Drawing</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/drawing3.css">
+</head>
+<body>
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="img/shining.png"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="active"><a href="drawing2.html">Renderings</a></li>
+            <li><a href="bim.html">BIM</a></li>
+            <li><a href="animate3d.html">3D Animate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <h2 class="drawing text-uppercase">digital Effect Drawing</h2>
+    <div class="alternate">
+    	<img src="img/sw-photo.png">
+    	<div class="inner">
+    		<img src="img/sw-photo.png">
+	    	<img src="img/3d-1.png">
+	    	<img src="img/sw-5.png">
+    	</div>
+    	<p></p>
+    </div>
+    <ul class="wrap clearfix">
+    	<li class="list1">
+    		<!-- <div>
+    			<img src="img/sw-5.png">
+    			<div class="minMask">
+	    			<span>标题</span>
+	    		</div>
+    		</div> -->
+    	</li>
+    	<li class="list2"></li>
+    	<li class="list3"></li>
+    	<div class="mask"><span><img src="" alt=""></span></div>
+    	<a href="javascript:void(0);" class="goTop"></a>
+    </ul>
+    <p class="drawing">CONTACT US</p>
+    <a href="javascript:void(0);" class="bottom"><img src="img/footer3.png"></a>
+    <footer><img src="img/footer.png"></footer>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript">
+		$(".navbar-right li").hover(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+        },function(){
+            $(this).removeClass("active");
+            $(this).parent().find("li").eq(2).addClass("active");
+        })
+		var index=0;
+		next();
+		var len=$(".alternate .inner img").size();
+		for(var k=0;k<len;k++){
+			$("<span/>").appendTo($(".alternate>p"));
+		}
+		function next(){
+			$(".alternate .inner img").eq(index).fadeIn(600).siblings().fadeOut(300);
+			$(".alternate p span").eq(index).addClass("sActive").siblings().removeClass("sActive");
+		}
+		$(".alternate p span").on("mouseenter",function(){
+			index=$(this).index();
+			next();
+		})
+		var timer=setInterval(function(){
+			index++;
+			if(index>len-1){
+				index=0;
+			}
+			next();
+		},5000)
+		$(".alternate").on("swipeLeft",function(){
+			index++;
+			if(index>len-1){
+				index=0;
+			}
+			next();
+		})
+		$(".alternate").on("swipeRight",function(){
+			index--;
+			if(index<0){
+				index=len-1;
+			}
+			next();
+		})
+		$(".alternate").hover(function(){
+			clearInterval(timer)
+		},function(){
+			timer=setInterval(function(){
+				index++;
+				if(index>len-1){
+					index=0;
+				}
+				next();
+			},3000)
+		})
+		// 瀑布流:
+		function rnd(min,max){
+			return parseInt(Math.random()*(max-min+1)+min);
+		}
+		
+		var k=1;
+		// function addPic(){
+		// 	for(var i=0;i<6;i++){
+		// 		var minList=$(".wrap>li").eq(0);
+		// 		for(var j=0;j<$(".wrap>li").size();j++){
+		// 			if(minList.outerHeight()>$(".wrap>li").eq(j).outerHeight()){
+		// 				minList=$(".wrap>li").eq(j);
+		// 			}
+		// 		}
+		// 		var newImg=$("<img/>").attr("src","img/sw-"+(i+1)+".png");
+		// 		// newImg.on("load",function(){
+		// 		// 	newImg.appendTo(minList);
+		// 		// })
+		// 		newImg.appendTo(minList);	
+		// 	}
+		// }
+		//图片预加载：
+		var num=12;
+		var z=0;
+		var imgArr=[];
+		function PicNum(){
+			imgArr=[];
+			for(var y=0;y<num;y++){ 
+				imgArr[y]=$("<img/>").attr("src","img/sw-"+(y+1)+".png");
+				imgArr[y].on("load",function(){
+					z++;
+					// console.log(z);
+					if(z==num){
+						addPic();
+						console.log(z)
+						z=0;
+					}
+				})
+			}
+		}
+		function addPic(){
+			for(var i=0;i<num;i++){
+				// var c='<img src="img/sw-5.png">'+
+	   //  			'<div class="minMask">'+
+		  //   			'<span>标题</span>'+
+		  //   		'</div>'
+				var minList=$(".wrap>li").eq(0);
+				for(var j=0;j<$(".wrap>li").size();j++){
+					if(minList.outerHeight()>$(".wrap>li").eq(j).outerHeight()){
+						minList=$(".wrap>li").eq(j);
+					}
+				}
+				var c='<div class="minMask">'+
+		    			'<span>标题'+(i+1)+'</span>'+
+		    			'</div>'
+				var newD=$("<div></div>").html(c);
+
+				imgArr[i].appendTo(newD)
+				console.log(newD)
+				newD.appendTo(minList);	
+			}
+		}
+		var footer=$("footer").get(0);
+		window.onscroll = function() {
+			if(footer.getBoundingClientRect().bottom <= document.documentElement.clientHeight+1) {
+				PicNum();
+			}
+		}
+		$(".wrap").on("click","img",function(){
+			var imgSrc=$(this).attr("src");
+			$(this).css("filter","grayscale(50%)")
+			$(".mask img").attr("src",imgSrc).css("width","60%");
+			$(".mask").css("display","table");
+		})
+		$(".mask").on("click",function(){
+			$(".mask").hide();
+		})
+		// 返回顶部：
+		var changeTop=50;
+		var goTop=$(".goTop").get(0);
+		goTop.onclick=function(){
+			var sTop=document.body.scrollTop||document.documentElement.scrollTop;
+			var raf=window.requestAnimationFrame(change);
+			function change(){
+				sTop-=changeTop;
+				document.body.scrollTop=sTop;
+				document.documentElement.scrollTop=sTop;
+				raf=window.requestAnimationFrame(change);
+				if(sTop<0){
+					window.cancelAnimationFrame(raf);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+html,body{
+	width: 100%;
+}
+.navbar-brand img{
+	width: 120px;
+}
+#navbar .nav .active a{
+	background-color: #cfdb00;
+}
+.main{
+	background-color: #f5f5f5;
+	padding-top: 12.59%;
+}
+.cloud{
+	display: block;
+	width: 24.7%;
+	margin:0px auto 6.73%;
+}
+.cloud>img{
+	width: 100%;
+}
+.contactus{
+	font-size: 2.4rem;
+	text-align: center;
+}
+.contactus:before{
+	content: "";
+	display: inline-block;
+	width: 8.71%;
+	height: 0;
+	vertical-align: middle;
+	border-top: 1px solid #cfdb00;
+	margin-right: 25px;
+}
+.contactus:after{
+	content: "";
+	display: inline-block;
+	width: 8.71%;
+	height: 0;
+	vertical-align: middle;
+	border-top: 1px solid #cfdb00;
+	margin-left: 25px;
+}
+.conTel{
+	display: block;
+	width: 55.6%;
+	margin: 104px auto 0;
+}
+.conTel>img{
+	width: 100%;
+}
+.map{
+	width: 70.278%;
+	margin:0 auto;
+}
+.map>img{
+	width: 100%;
+}
+.bottom{
+	display: block;
+	line-height: 100%;
+	text-align: center;
+	margin:87px auto;
+}
+footer{
+	border-top:2px solid #cfdb00;
+	height: 68px;
+	line-height: 68px;
+	text-align: center;
+	background-color: #b4b4b4;
+}
+@media screen and (max-width: 960px){
+	.conTel{
+		display: block;
+		width: 80%;
+		margin: 104px auto 0;
+	}
+	.cloud{
+		width: 50%;
+	}
+}
+@media screen and (max-width: 600px){
+	.main{
+		padding-top: 120px;
+	}
+	.cloud{
+		width: 70%;
+	}
+}
+@media screen and (max-width: 450px){
+	.conTel{
+		display: block;
+		width: 95%;
+		margin: 104px auto 0;
+	}
+	.bottom img{
+	width: 90%;
+	}
+	footer img{
+	width: 90%;
+	}
+}

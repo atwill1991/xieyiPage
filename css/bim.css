@@ -1,0 +1,242 @@
+html,body{
+	width: 100%;
+}
+.navbar-brand img{
+	width: 120px;
+}
+#navbar .nav .active a{
+	background-color: #cfdb00;
+}
+.bim{
+	font-size: 2.8rem;
+	text-align: center;
+	margin:8% auto 4.53%;
+	color:#616161;
+}
+.bim:before{
+	content: "";
+	display: inline-block;
+	width: 8.5%;
+	height: 0;
+	vertical-align: middle;
+	border-top: 1px solid #cfdb00;
+	margin-right: 25px;
+}
+.bim:after{
+	content: "";
+	display: inline-block;
+	width: 8.5%;
+	height: 0;
+	vertical-align: middle;
+	border-top: 1px solid #cfdb00;
+	margin-left: 25px;
+}
+.main{
+	position: relative;
+}
+.main>div>section>h2{
+	display: inline-block;
+	font-size: 2.4rem;
+	color: #616161;
+	background-color: #cfdb00;
+}
+.main>div>section>p{
+	color:#1a1a1a;
+	font-size: 1.6rem;
+}
+.part1{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.part1>.bimbg1{
+	width: 100%;
+}
+.part1>.bim1{
+	position: absolute;
+	right:13.982%;
+	top: 17.6%;
+	width: 33.236%;
+}
+.wrap1{
+	position: absolute;
+	top:31.58%;
+	left: 14.42%;
+	width: 39.75%;
+}
+.wrap1>img{
+	width: 31.65%;	
+}
+.wrap1>.bim1-1{
+	position: relative;
+	top: 0;
+	left: 10px;
+}
+.wrap1>.bim1-2{
+	position: relative;
+	top: 0;
+	left: -5px;
+}
+.wrap1>.bim1-3{
+	position: relative;
+	top: 0;
+	left: -20px;
+}
+.part2{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.part2>.bimbg2{
+	width: 100%;
+}
+.part2>.bim2{
+	position: absolute;
+	right:13.982%;
+	top: -63.2%;
+	width: 33.236%;
+}
+.wrap2{
+	position: absolute;
+	top:31.58%;
+	left: 14.42%;
+	width: 39.75%;
+}
+.wrap2>img{
+	width: 39.71%;
+}
+.part3{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.part3>.bimbg3{
+	width: 100%;
+}
+.part3>.bim3{
+	position: absolute;
+	left:4.83%;
+	top: 20.2%;
+	width: 33.236%;
+}
+.wrap3{
+	position: absolute;
+	top:17%;
+	left: 37.6%;
+	width: 39.8%;
+}
+.wrap3>img{
+	width: 43.66%;
+}
+.part4{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.part4>.bimbg4{
+	width: 100%;
+}
+.part4>.bim4{
+	position: absolute;
+	left:4.83%;
+	top: -81.5%;
+	width: 33.236%;
+}
+.part4>.bim4-1{
+	position: absolute;
+	right:5.71%;
+	top: 20.2%;
+	width: 33.236%;
+}
+.wrap4{
+	position: absolute;
+	top:24.2%;
+	left: 37.6%;
+	width: 39.8%;
+}
+.wrap4>img{
+	width: 59.1%;
+	margin:1.6% 0;
+}
+.part5{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.part5>.bimbg5{
+	width: 100%;
+}
+.part5>.bim5{
+	position: absolute;
+	right:5.71%;
+	top: -84%;
+	width: 33.236%;
+}
+.wrap5{
+	position: absolute;
+	top:24.2%;
+	left: 15.37%;
+	width: 38.5%;
+}
+.goTop{
+	display: block;
+	position: absolute;
+	bottom:0;
+	left: 50%;
+	margin-left:-24px;
+	width: 68px;
+	height: 48px;
+	background:url("../img/sw-top.png");
+}
+.bottom{
+	display: block;
+	line-height: 100%;
+	text-align: center;
+	margin:6.37% auto;
+}
+footer{
+	border-top:2px solid #cfdb00;
+	height: 68px;
+	line-height: 68px;
+	text-align: center;
+	background-color: #b4b4b4;
+}
+@media screen and (max-width: 960px) {
+	.main section {
+		top: 8%;
+	}
+	.bimTop{
+		margin:76px auto 4.53%;
+	}
+}
+@media screen and (max-width:460px) {
+	.bottom img{
+	width: 90%;
+	}
+	footer img{
+	width: 90%;
+	}
+	.main{
+	padding-top: 90px;
+	}
+}
+@media screen and (max-width: 600px){
+	.main>div>section>h2{
+		font-size: 1.8rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.main>div>section>p{
+		font-size: 1.4rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.main>div>section{
+		top:6%;
+	}
+	.wrap1>img {
+	    width: 30%;
+	}
+}
